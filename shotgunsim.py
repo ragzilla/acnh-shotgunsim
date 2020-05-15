@@ -23,7 +23,7 @@ def simulate(in_runs, in_pairs, in_visitors):
 		pairs  = Field("pairs", pairs_layout)
 		pairer = PairBreeder()
 		feeder = Feeder(genes, probs, visit=in_visitors, pairs=in_pairs)
-		for day in range(365):
+		for day in range(1, 365):
 			# get the days flowers
 			feed = feeder.feed()
 			# print("day",day,feed)
@@ -37,6 +37,7 @@ def simulate(in_runs, in_pairs, in_visitors):
 				pairer.place(new_flower)
 				turtle.place(new_flower)
 
+			# everything above this point technically "runs" the day before
 			# run the fields
 			if pairs_day == -1:
 				harvest  = pairs.run()
