@@ -8,7 +8,7 @@ from field import Field
 from pairbreeder import PairBreeder
 from feeder import Feeder
 
-def main():
+def simulate(in_runs, in_pairs, in_visitors):
 	target = [ [2,2,0],[2,2,1],[2,2,2] ]
 	genes  = [ [1,1,0],[1,2,0],[2,0,0],[2,1,0] ] # simulating t110 x t110
 	probs  = [ 4/9,    2/9,    1/9,    2/9     ] # 25/12.5/6.25/12.5
@@ -16,13 +16,13 @@ def main():
 	pairs_results = []
 	turtle_results = []
 
-	for run in range(10000):
+	for run in range(in_runs):
 		turtle_day = -1
 		pairs_day = -1
 		turtle = Field("turtle", turtle_layout)
 		pairs  = Field("pairs", pairs_layout)
 		pairer = PairBreeder()
-		feeder = Feeder(genes, probs)
+		feeder = Feeder(genes, probs, visit=in_visitors, pairs=in_pairs)
 		for day in range(365):
 			# get the days flowers
 			feed = feeder.feed()
@@ -60,10 +60,12 @@ def main():
 			turtle_results.append(turtle_day)
 
 	# print("pairs:",pairs_results)
-	print("pairs: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
+	print("{}v {}in pairs: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(in_visitors, in_pairs, np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
 	# print("turtle:",turtle_results)
-	print("turtles: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
+	print("{}v {}in turtles: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(in_visitors, in_pairs, np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
 	return
 
 if __name__ == "__main__":
-    main()
+	for visitors in (0, 1, 3, 5):
+		for pairs in (1, 2, 4, 8, 16):
+			simulate(10000, pairs, visitors)
