@@ -19,7 +19,8 @@ def main():
 		pairs  = Field(pairs_layout)
 		pairer = PairBreeder(pairs)
 		feeder = Feeder(genes, probs)
-		print(feeder.feed())
+		for day in range(365):
+			print("day",day,feeder.feed())
 
 	return
 
