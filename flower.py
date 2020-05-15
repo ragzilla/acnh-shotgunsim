@@ -48,7 +48,7 @@ class Flower:
 		return
 
 	def is_valid(self):
-		return
+		return self.invalid == False
 
 	def reset_day(self):
 		self.invalid = False
