@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 
 import numpy as np
-from data import baserepro, bonusrepro
+from data import baserepro, bonusrepro, punnett_square
 
 class Flower:
 	genes = None
@@ -30,9 +30,12 @@ class Flower:
 			return None
 		if partner != None:
 			### breed
+			partner.make_invalid()
 			partner_genes = partner.get_genes()
-			### make partner invalid?
-			print("I NEED A PARTNER")
+			new_genes = [ 0 ] * len(self.genes):
+			for gIdex in len(self.genes):
+				new_genes[gIdx] = np.random.choice( punnett_square[self.genes[gIdx]][partner_genes[gIdx]] )
+			new_flower = Flower(new_genes, self.visit)
 		else:
 			### self clone
 			new_flower = Flower(self.genes, self.visit)

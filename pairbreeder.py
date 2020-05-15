@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 
 class PairBreeder:
+	"""really more of a pair cloner"""
 	flowers = None
 
 	def __init__(self):
