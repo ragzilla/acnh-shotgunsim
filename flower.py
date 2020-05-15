@@ -12,7 +12,14 @@ class Flower:
 		self.visit = visit
 		self.invalid = False
 
+	def __repr__(self):
+		return "Flower({}, visit={})".format(str(self.genes), self.visit)
+
+	def get_genes(self):
+		return self.genes
+
 	def breed(self, partner):
+		partner_genes = partner.get_genes()
 		return
 
 	def make_invalid(self):

@@ -2,17 +2,15 @@
 
 class PairBreeder:
 	flowers = None
-	pairs   = None
 
-	def __init__(self, pairs):
+	def __init__(self):
 		self.flowers = []
-		self.pairs   = pairs
 
 	def add(self, flower):
 		"""add a flower to the PairBreeder"""
-		print("adding:", flower)
+		print("PairBreeder: add:", flower)
 		return
 
 	def breed(self):
-		"""breeds all flowers, if a pair results, put them into self.pairs"""
-		return
+		"""breeds all flowers, if a pair results, return them to the caller"""
+		return []

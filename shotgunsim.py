@@ -17,10 +17,20 @@ def main():
 	for run in range(1):
 		turtle = Field(turtle_layout)
 		pairs  = Field(pairs_layout)
-		pairer = PairBreeder(pairs)
+		pairer = PairBreeder()
 		feeder = Feeder(genes, probs)
 		for day in range(365):
-			print("day",day,feeder.feed())
+			# get the days flowers
+			feed = feeder.feed()
+			print("day",day,feed)
+
+			# check for output from the pairer, put them into the pairs field
+			for new_pair in pairer.breed():
+				pairs.place(new_pair[0], new_pair[1])
+
+			# add the day's feed into the pairer and the turtle
+
+
 
 	return
 

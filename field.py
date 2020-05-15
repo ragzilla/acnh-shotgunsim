@@ -8,8 +8,9 @@ class Field:
 		self.layout = configuration
 		return
 
-	def place(self, flower1, flower2):
+	def place(self, flower1, flower2 = None):
 		"""place 1-2 flowers in the layout from the feeder"""
+		print("Field: add:", flower1, flower2)
 		return
 
 	def run(self):
