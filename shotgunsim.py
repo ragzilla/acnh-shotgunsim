@@ -15,8 +15,8 @@ def main():
 	genemap = len(probs)
 
 	for run in range(1):
-		turtle = Field(turtle_layout)
-		pairs  = Field(pairs_layout)
+		turtle = Field("turtle", turtle_layout)
+		pairs  = Field("pairs", pairs_layout)
 		pairer = PairBreeder()
 		feeder = Feeder(genes, probs)
 		for day in range(365):
@@ -29,7 +29,9 @@ def main():
 				pairs.place(new_pair[0], new_pair[1])
 
 			# add the day's feed into the pairer and the turtle
-
+			for new_flower in feed:
+				pairer.place(new_flower)
+				turtle.place(new_flower)
 
 
 	return

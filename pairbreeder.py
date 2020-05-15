@@ -6,11 +6,21 @@ class PairBreeder:
 	def __init__(self):
 		self.flowers = []
 
-	def add(self, flower):
+	def place(self, flower):
 		"""add a flower to the PairBreeder"""
-		print("PairBreeder: add:", flower)
+		print("PairBreeder.place:", flower)
+		self.flowers.append(flower)
 		return
 
 	def breed(self):
 		"""breeds all flowers, if a pair results, return them to the caller"""
-		return []
+		retval = []
+		delete = []
+		for flower in self.flowers:
+			new_flower = flower.breed()
+			if new_flower:
+				delete.append(flower)
+				retval.append([flower, new_flower])
+		for flower in delete:
+			self.flowers.remove(flower)
+		return retval
