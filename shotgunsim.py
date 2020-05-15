@@ -16,7 +16,7 @@ def main():
 	pairs_results = []
 	turtle_results = []
 
-	for run in range(1000):
+	for run in range(10000):
 		turtle_day = -1
 		pairs_day = -1
 		turtle = Field("turtle", turtle_layout)
@@ -55,14 +55,14 @@ def main():
 			if turtle_day != -1 and pairs_day != -1:
 				break
 		if turtle_day != -1 and pairs_day != -1:
-			print("run", run, "ended on day", day, "turtle", turtle_day, "pairs", pairs_day)
+			# print("run", run, "ended on day", day, "turtle", turtle_day, "pairs", pairs_day)
 			pairs_results.append(pairs_day)
 			turtle_results.append(turtle_day)
 
-	print("pairs:",pairs_results)
-	print("min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
-	print("turtle:",turtle_results)
-	print("min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
+	# print("pairs:",pairs_results)
+	print("pairs: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
+	# print("turtle:",turtle_results)
+	print("turtles: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
 	return
 
 if __name__ == "__main__":
