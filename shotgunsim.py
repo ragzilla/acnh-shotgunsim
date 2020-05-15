@@ -60,10 +60,9 @@ def simulate(in_runs, in_pairs, in_visitors):
 			pairs_results.append(pairs_day)
 			turtle_results.append(turtle_day)
 
-	# print("pairs:",pairs_results)
-	print("{}v {}in pairs: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(in_visitors, in_pairs, np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
-	# print("turtle:",turtle_results)
-	print("{}v {}in turtles: min: {} | max: {} | mean: {} | median: {} | 95th: {}".format(in_visitors, in_pairs, np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
+	print("visit\tfeed\tlayout\tmin\tmax\tmean\tmedian\t95th")
+	print("{}\t{}\tpairs\t{}\t{}\t{}\t{}\t{}".format(in_visitors, in_pairs, np.amin(pairs_results), np.amax(pairs_results), np.mean(pairs_results), np.median(pairs_results), np.percentile(pairs_results, 95)))
+	print("{}\t{}\tpairs\t{}\t{}\t{}\t{}\t{}".format(in_visitors, in_pairs, np.amin(turtle_results), np.amax(turtle_results), np.mean(turtle_results), np.median(turtle_results), np.percentile(turtle_results, 95)))
 	return
 
 if __name__ == "__main__":
