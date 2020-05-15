@@ -9,7 +9,7 @@ class Flower:
 	visit = 0
 	invalid = False
 
-	def __init__(self, genes, visit):
+	def __init__(self, genes, visit = 0):
 		self.genes = genes
 		self.pity  = 0
 		self.visit = visit
@@ -32,8 +32,8 @@ class Flower:
 			### breed
 			partner.make_invalid()
 			partner_genes = partner.get_genes()
-			new_genes = [ 0 ] * len(self.genes):
-			for gIdex in len(self.genes):
+			new_genes = [ 0 ] * len(self.genes)
+			for gIdx in range(len(self.genes)):
 				new_genes[gIdx] = np.random.choice( punnett_square[self.genes[gIdx]][partner_genes[gIdx]] )
 			new_flower = Flower(new_genes, self.visit)
 		else:
