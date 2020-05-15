@@ -9,7 +9,7 @@ class PairBreeder:
 
 	def place(self, flower):
 		"""add a flower to the PairBreeder"""
-		print("PairBreeder.place:", flower)
+		# print("PairBreeder.place:", flower)
 		self.flowers.append(flower)
 		return
 

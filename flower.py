@@ -28,6 +28,7 @@ class Flower:
 			### fail
 			self.pity += 1
 			return None
+		self.make_invalid()
 		if partner != None:
 			### breed
 			partner.make_invalid()
@@ -39,7 +40,6 @@ class Flower:
 		else:
 			### self clone
 			new_flower = Flower(self.genes, self.visit)
-		self.pity = 0
 		return new_flower
 
 	def make_invalid(self):

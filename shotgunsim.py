@@ -33,6 +33,9 @@ def main():
 				pairer.place(new_flower)
 				turtle.place(new_flower)
 
+			# run the fields
+			pairs.run()
+			turtle.run()
 
 	return
 
