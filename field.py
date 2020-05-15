@@ -1,5 +1,7 @@
 #! /usr/bin/python3
 
+from itertools import product
+
 class Field:
 	name   = None
 	layout = None
@@ -32,8 +34,14 @@ class Field:
 		print(self.matrix)
 		return
 
+	def neighbors(self, x, y):
+		cell = (x,y)
+		for c in product(*(range(n-1, n+2) for n in cell)):
+			if c != cell and (0 <= c[1] < self.x) and (0 <= c[0] < self.y): #  for n in c)
+				yield c
+
 	def run(self):
-		"""run the day"""
+		"""reset the plants, run the day"""
 		return
 
 	def __repr__(self):
